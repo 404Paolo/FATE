@@ -1,0 +1,223 @@
+<resources>
+    <!--START of Application Name-->
+    <string name="app_name">Tutoriapp</string>
+    <!--END of Application Name-->
+
+    <!--START of MainActivity String-->
+    <string name="main_string_tutor">Tutor</string>
+    <string name="main_string_i">i</string>
+    <string name="main_string_owl">owl</string>
+    <string name="main_string_get_started">Get Started</string>
+    <string name="main_string_Welcome">Welcome!</string>
+    <string name="main_string_welcome_message">Tutoriowl will help you to master Mandarin\npronunciation with interactive lessons and\npractice exercises.</string>
+    <!--END of MainActivity String-->
+
+    <!--START of MainActivity String Styling-->
+    <style name="main_string_style_welcome">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/gainsboro</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="main_string_style_welcome_message">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/gainsboro</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+    </style>
+
+    <style name="main_string_style_tutor">
+        <item name="fontFamily">@font/poppins_black</item>
+        <item name="android:textColor">@color/lavender_indigo</item>
+        <item name="android:textSize">38sp</item>
+    </style>
+
+    <style name="main_string_style_i">
+        <item name="fontFamily">@font/poppins_black</item>
+        <item name="android:textColor">@color/cadmium_orange</item>
+        <item name="android:textSize">38sp</item>
+    </style>
+
+    <style name="main_string_style_owl">
+        <item name="fontFamily">@font/poppins_black</item>
+        <item name="android:textColor">@color/lavender_indigo</item>
+        <item name="android:textSize">38sp</item>
+    </style>
+
+    <style name="main_string_style_get_started">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!--END of MainActivity String Styling-->
+
+    <!--START of LoginActivity String-->
+    <string name="login_string_log">Log</string>
+    <string name="login_string_in">in</string>
+    <string name="login_string_description">Log in to your account</string>
+    <string name="login_string_hint_email">Email</string>
+    <string name="login_string_hint_password">Password</string>
+    <string name="login_string_enter">Enter</string>
+    <!--END of LoginActivity String-->
+
+    <!--START of LoginActivity String Styling-->
+    <style name="login_string_style_log">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="login_string_style_in">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="login_string_style_description">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="login_string_style_enter">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!--END of LoginActivity String Styling-->
+
+    <!--START of Bottom Navigation String-->
+    <string name="bottom_navigation_string_dashboard">Dashboard</string>
+    <string name="bottom_navigation_string_performance">Performance</string>
+    <string name="bottom_navigation_string_leaderboard">Leaderboard</string>
+    <string name="bottom_navigation_string_practice">Practice</string>
+    <string name="bottom_navigation_string_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--END of Bottom Navigation String-->
+
+    <!--START of Fragment Dashboard String-->
+    <string name="dashboard_string_module_0">Module 0</string>
+    <string name="dashboard_string_description_module_0">What is pinyin?</string>
+    <string name="dashboard_string_percent_complete">0% Complete</string>
+
+    <string name="dashboard_string_module_1">Module 1</string>
+    <string name="dashboard_string_module_2">Module 2</string>
+    <string name="dashboard_string_module_3">Module 3</string>
+    <!--END of Fragment Dashboard String-->
+
+    <!--START of Fragment Dashboard String Style-->
+    <style name="dashboard_string_style_module_name">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black_olive</item>
+    </style>
+
+    <style name="dashboard_string_style_description_module_0">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black_olive</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="dashboard_string_style_progress_complete">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black_olive</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!--END of Fragment Dashboard String Style-->
+
+    <!--START of Fragment Performance String-->
+    <string name="fragment_practice_string_initials">Initials</string>
+    <!--END of Fragment Performance String-->
+
+    <!--START of Fragment Performance String Style-->
+    <style name="fragment_practice_string_style_initials">
+        <item name="android:text">@string/fragment_practice_string_initials</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black_olive</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+    <!--END of Fragment Performance String Style-->
+
+    <!--START of Pre Assessment Dialog String-->
+    <string name="pre_assessment_dialog_text_zero">Hello(Nihao)!</string>
+    <string name="pre_assessment_dialog_text_one">Welcome to Tutoriapp,</string>
+    <string name="pre_assessment_dialog_text_two">Before you venture into the world of pinyin, we have a special pre-assessment waiting for you.</string>
+    <string name="pre_assessment_dialog_text_three">Approach it with utmost seriousness… for it holds the key to your journey ahead.</string>
+
+    <string name="pre_assessment_dialog_text_four">Congratulations on finishing the pre assessment</string>
+    <string name="pre_assessment_dialog_text_five">Modules unlocked:</string>
+    <string name="pre_assessment_dialog_text_six">Thats too bad, Because of that you are required to start from module 0</string>
+    <string name="pre_assessment_dialog_text_seven">You have unlocked module 1 only</string>
+    <string name="pre_assessment_dialog_text_eight">You have unlocked module 2 only</string>
+    <string name="pre_assessment_dialog_text_nine">You have unlocked module 3 only</string>
+    <string name="pre_assessment_dialog_text_ten">You have unlocked module 1 and 2 only</string>
+    <string name="pre_assessment_dialog_text_eleven">You have unlocked module 1 and 3 only</string>
+    <string name="pre_assessment_dialog_text_twelve">You have unlocked module 2 and 1 only</string>
+    <string name="pre_assessment_dialog_text_thirteen">You have unlocked module 2 and 3 only</string>
+    <string name="pre_assessment_dialog_text_fourteen">You have unlocked module 3 and 1 only</string>
+    <string name="pre_assessment_dialog_text_fifteen">You have unlocked module 3 and 2 only</string>
+    <string name="pre_assessment_dialog_text_sixteen">You have unlocked all modules</string>
+    <string name="pre_assessment_dialog_text_seventeen">It does not mean you have nothing left to do here</string>
+    <string name="pre_assessment_dialog_text_eighteen">You can practice and improve your pronunciation by navigating through the app.</string>
+    <!--END of Pre Assessment Dialog String-->
+
+    <!--START of Pre Assessment Dialog String Style-->
+    <style name="pre_assessment_dialog_text_style_one">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/lotion</item>
+    </style>
+    <!--END of Pre Assessment Dialog String Style-->
+
+    <!--START of Pre Assessment Question String Style-->
+    <style name="pre_assessment_text_style_question">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black_olive</item>
+    </style>
+    <!--END of Pre Assessment Question String Style-->
+
+    <!--START of Pre Assessment Question String Style-->
+    <style name="pre_assessment_text_style_choices">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black_olive</item>
+    </style>
+    <!--END of Pre Assessment Question String Style-->
+
+    <string name="pre_assessment_click_to_hear_pronunciation_string">Click to hear pronunciation</string>
+
+    <style name="pre_assessment_click_to_hear_pronunciation_string_style">
+        <item name="backgroundColor">@null</item>
+        <item name="background">@null</item>
+        <item name="fontFamily">@font/righteous</item>
+        <item name="android:textColor">@color/charcoal_gray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--START of Button Control String-->
+    <string name="bottom_control_next">Next</string>
+    <string name="bottom_control_previous">Previous</string>
+
+    <!--START of Missing Character Question Choices Style-->
+    <style name="missing_character_choices_style">
+        <item name="backgroundColor">@null</item>
+        <item name="background">@null</item>
+        <item name="fontFamily">@font/righteous</item>
+        <item name="android:textColor">@color/charcoal_gray</item>
+        <item name="android:textSize">36sp</item>
+    </style>
+    <!--END of Missing Character Question Choices Style-->
+
+    <!--START of Style-->
+    <style name="bottom_control_text_style">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--END of Style-->
+    <!--END of Button Control String-->
+
+</resources>

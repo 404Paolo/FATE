@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="18dp"
+
+    android:backgroundTint="@color/ghost_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pre_assessment_dialog"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pre_assessment_dialog_welcome_message_container"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/characters_card_layout_background"
+
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/pre_assessment_dialog_welcome_text"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+
+                android:text="@string/pre_assessment_dialog_text_zero"
+                style="@style/pre_assessment_dialog_text_style_one"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/pre_assessment_button_next"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/custom_dialog_reply_background"
+
+            android:text="@string/bottom_control_next"
+            style="@style/bottom_control_text_style"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

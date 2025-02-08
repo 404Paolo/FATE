@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/eigengrau"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginBottom="300dp">
+    </ImageView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_string_layout_tutoriowl"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/main_string_view_tutor"
+
+            style="@style/main_string_style_tutor"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="@string/main_string_tutor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/main_string_view_i"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+        <TextView
+            android:id="@+id/main_string_view_i"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/main_string_i"
+            style="@style/main_string_style_i"
+
+            app:layout_constraintStart_toEndOf="@+id/main_string_view_tutor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/main_string_view_owl"
+            app:layout_constraintBottom_toBottomOf="parent">
+        </TextView>
+
+        <TextView
+            android:id="@+id/main_string_view_owl"
+
+            style="@style/main_string_style_owl"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="@string/main_string_owl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/main_string_view_i"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/main_string_view_welcome"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/main_string_Welcome"
+        style="@style/main_string_style_welcome"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_string_layout_tutoriowl"
+
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp">
+    </TextView>
+    <TextView
+        android:id="@+id/main_string_view_welcome_message"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/main_string_welcome_message"
+        style="@style/main_string_style_welcome_message"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_string_view_welcome"
+
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp">
+    </TextView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_card_view_get_started"
+
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+
+        app:cardBackgroundColor="@color/lavender_indigo"
+        app:cardCornerRadius="20dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_string_view_welcome_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginBottom="60dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/main_string_get_started"
+            style="@style/main_string_style_get_started"
+            android:background="@drawable/acknowledge_button_background"/>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

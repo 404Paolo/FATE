@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591065376755",
+    "project_id": "tutoriweb-a6edc",
+    "storage_bucket": "tutoriweb-a6edc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591065376755:android:bb1701758d7de89cce5486",
+        "android_client_info": {
+          "package_name": "com.example.tutoriapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7IxH6yOiffJiP8_xCSztj2C0LtBugIR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

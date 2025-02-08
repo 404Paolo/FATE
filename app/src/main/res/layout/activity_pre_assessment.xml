@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreAssessmentActivity"
+
+    android:orientation="vertical"
+    android:background="@color/ghost_white">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pre_assessment_bottom_container"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingBottom="125dp">
+        <Button
+            android:id="@+id/buttonPrevious"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/bottom_control_previous"
+            style="@style/bottom_control_text_style"
+
+            android:backgroundTint="@color/zaffre"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonNext"/>
+
+        <Button
+            android:id="@+id/buttonNext"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/bottom_control_next"
+            style="@style/bottom_control_text_style"
+
+            android:backgroundTint="@color/zaffre"
+
+            app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

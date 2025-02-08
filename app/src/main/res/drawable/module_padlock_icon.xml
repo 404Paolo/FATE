@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="54dp"
+    android:height="55dp"
+    android:viewportWidth="54"
+    android:viewportHeight="55">
+
+    <!-- Lock Shackle -->
+    <path
+        android:pathData="M14.5,18.0909C14.5,11.1638 20.1294,5.5 27,5.5C33.8706,5.5 39.5,11.1638 39.5,18.0909V22.5H14.5V18.0909Z"
+        android:strokeColor="#535151"
+        android:strokeWidth="1" />
+
+    <!-- Lock Body -->
+    <path
+        android:pathData="M38,22H16C13.3963,22 11.2856,24.1107 11.2856,26.7143V45.5714C11.2856,48.1751 13.3963,50.2857 16,50.2857H38C40.6036,50.2857 42.7142,48.1751 42.7142,45.5714V26.7143C42.7142,24.1107 40.6036,22 38,22Z"
+        android:fillColor="#E0C350" />
+
+    <!-- Keyhole (Circle) -->
+    <path
+        android:pathData="M27,37.7143C28.7355,37.7143 30.1426,36.3072 30.1426,34.5714C30.1426,32.8357 28.7355,31.4286 27,31.4286C25.264,31.4286 23.8569,32.8357 23.8569,34.5714C23.8569,36.3072 25.264,37.7143 27,37.7143Z"
+        android:fillColor="#151515" />
+
+    <!-- Keyhole (Slot) -->
+    <path
+        android:pathData="M27.7858,37.7143H26.2144V44H27.7858V37.7143Z"
+        android:fillColor="#151515" />
+</vector>

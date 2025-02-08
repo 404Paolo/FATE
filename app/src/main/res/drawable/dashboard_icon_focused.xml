@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+android:width="17dp"
+android:height="17dp"
+android:viewportWidth="17"
+android:viewportHeight="17">
+<group>
+    <clip-path
+        android:pathData="M1,0L6.286,0A1,1 0,0 1,7.286 1L7.286,6.286A1,1 0,0 1,6.286 7.286L1,7.286A1,1 0,0 1,0 6.286L0,1A1,1 0,0 1,1 0z"/>
+    <path
+        android:pathData="M1,0L6.286,0A1,1 0,0 1,7.286 1L7.286,6.286A1,1 0,0 1,6.286 7.286L1,7.286A1,1 0,0 1,0 6.286L0,1A1,1 0,0 1,1 0z"
+        android:strokeWidth="7.28571"
+        android:fillColor="#00000000"
+        android:strokeColor="#E51385"/>
+</group>
+<group>
+    <clip-path
+        android:pathData="M1,9.714L6.286,9.714A1,1 0,0 1,7.286 10.714L7.286,16A1,1 0,0 1,6.286 17L1,17A1,1 0,0 1,0 16L0,10.714A1,1 0,0 1,1 9.714z"/>
+    <path
+        android:pathData="M1,9.714L6.286,9.714A1,1 0,0 1,7.286 10.714L7.286,16A1,1 0,0 1,6.286 17L1,17A1,1 0,0 1,0 16L0,10.714A1,1 0,0 1,1 9.714z"
+        android:strokeWidth="7.28571"
+        android:fillColor="#00000000"
+        android:strokeColor="#E51385"/>
+</group>
+<group>
+    <clip-path
+        android:pathData="M10.714,9.714L16,9.714A1,1 0,0 1,17 10.714L17,16A1,1 0,0 1,16 17L10.714,17A1,1 0,0 1,9.714 16L9.714,10.714A1,1 0,0 1,10.714 9.714z"/>
+    <path
+        android:pathData="M10.714,9.714L16,9.714A1,1 0,0 1,17 10.714L17,16A1,1 0,0 1,16 17L10.714,17A1,1 0,0 1,9.714 16L9.714,10.714A1,1 0,0 1,10.714 9.714z"
+        android:strokeWidth="7.28571"
+        android:fillColor="#00000000"
+        android:strokeColor="#E51385"/>
+</group>
+<group>
+    <clip-path
+        android:pathData="M10.714,0L16,0A1,1 0,0 1,17 1L17,6.286A1,1 0,0 1,16 7.286L10.714,7.286A1,1 0,0 1,9.714 6.286L9.714,1A1,1 0,0 1,10.714 0z"/>
+    <path
+        android:pathData="M10.714,0L16,0A1,1 0,0 1,17 1L17,6.286A1,1 0,0 1,16 7.286L10.714,7.286A1,1 0,0 1,9.714 6.286L9.714,1A1,1 0,0 1,10.714 0z"
+        android:strokeWidth="7.28571"
+        android:fillColor="#00000000"
+        android:strokeColor="#E51385"/>
+</group>
+</vector>
