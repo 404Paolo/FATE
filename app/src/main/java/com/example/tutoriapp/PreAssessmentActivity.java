@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class PreAssessmentActivity extends AppCompatActivity {
     private QuestionManager questionManager;
-    private Button buttonNext, buttonPrevious;
+    public Button buttonNext, buttonPrevious;
     PreAssessmentFragment preAssessmentFragment;
     Map<String, Integer> modulePoints = new HashMap<>();
 
@@ -74,6 +74,10 @@ public class PreAssessmentActivity extends AppCompatActivity {
             questionManager.getPreviousQuestion();
             refreshCurrentFragment();
         });
+    }
+
+    private void switchQuestion(){
+
     }
 
     private void refreshCurrentFragment() {

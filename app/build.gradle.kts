@@ -43,9 +43,15 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     implementation(libs.material)
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("org.json:json:20211205")
+    implementation("com.belerweb:pinyin4j:2.5.1")
 
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
     implementation(libs.firebase.auth)
     //---
 

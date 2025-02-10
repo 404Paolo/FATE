@@ -19,8 +19,8 @@ public class QuestionManager {
         questions.add(new Question("Tones are placed on top of the finals", null, "False", new String[]{"False", "True", "Maybe"}, null, "conceptual"));
         questions.add(new Question("When people refer to the “Chinese” language, they are usually referring to Mandarin", null, "True", new String[]{"True", "False", "Maybe"}, null, "conceptual"));
         questions.add(new Question("Identify this sound", null, "Dog", new String[]{"Cat", "Dog", "Bird"}, "mao", "listening"));
-        questions.add(new Question("Pronounce the character shown below", "zh", "zh", null, null, "pronunciation"));
-        questions.add(new Question("Pronounce the character shown below", "ch", "ch", null, null, "pronunciation"));
+        questions.add(new Question("Pronounce the character shown below, or a word with it", "f", "f", null, null, "pronunciation"));
+        questions.add(new Question("Pronounce the character shown below, or a word with it", "j", "j", null, null, "pronunciation"));
     }
 
     public Question getCurrentQuestion() {

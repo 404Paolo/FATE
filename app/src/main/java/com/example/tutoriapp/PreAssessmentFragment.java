@@ -1,5 +1,7 @@
 package com.example.tutoriapp;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -7,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -21,15 +25,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class PreAssessmentFragment extends Fragment {
     private TextView questionText, characterToPronounceText;
-    private Button choice1, choice2, choice3;
-    private CardView audioButton, characterToPronounceCard;
+    private Button choice1, choice2, choice3, nextButton;
+    private CardView speakingButton, characterToPronounceCard;
     private MediaPlayer mediaPlayer;
     private String correctAnswer;
+    private static final int REQUEST_MICROPHONE = 1;
+
+    private SpeechEvaluator speechEvaluator;
+    private FirebaseUploader firebaseUploader;
+
     Map<String, String> buttonColorHistory = new HashMap<>();
     ImageButton microphoneButton;
     ImageView speakingIcon, checkIcon;
@@ -44,13 +55,19 @@ public class PreAssessmentFragment extends Fragment {
         choice1 = view.findViewById(R.id.choiceOne);
         choice2 = view.findViewById(R.id.choiceTwo);
         choice3 = view.findViewById(R.id.choiceThree);
-        audioButton = view.findViewById(R.id.speakingButton);
+        speakingButton = view.findViewById(R.id.speakingButton);
         speakingIcon = view.findViewById(R.id.speakingIcon);
         characterToPronounceCard = view.findViewById(R.id.characterToPronounceCard);
         characterToPronounceText = view.findViewById(R.id.characterToPronounceText);
         microphoneButton = view.findViewById(R.id.microphone_button);
         loadingAnimation = view.findViewById(R.id.loading_animation);
         checkIcon = view.findViewById(R.id.check_icon);
+
+        firebaseUploader = new FirebaseUploader(getContext());
+
+
+        nextButton = ((PreAssessmentActivity) getActivity()).buttonNext;
+        speechEvaluator = new SpeechEvaluator(getContext());
 
         // Set up click listeners for the Button choices
         choice1.setOnClickListener(this::onChoiceButtonClicked);
@@ -62,7 +79,7 @@ public class PreAssessmentFragment extends Fragment {
 
     public void updateQuestion(Question question) {
         questionText.setText(question.getQuestionText());
-        audioButton.setVisibility(View.GONE); // Ensure it resets for each question
+        speakingButton.setVisibility(View.GONE); // Ensure it resets for each question
 
         if (question.getQuestionType().equals("conceptual") || question.getQuestionType().equals("listening")) {
             choice1.setText(question.getChoices()[0]);
@@ -70,8 +87,8 @@ public class PreAssessmentFragment extends Fragment {
             choice3.setText(question.getChoices()[2]);
 
             if (question.getAudioFile() != null) {
-                audioButton.setVisibility(View.VISIBLE);
-                audioButton.setOnClickListener(v -> {
+                speakingButton.setVisibility(View.VISIBLE);
+                speakingButton.setOnClickListener(v -> {
                     speakingIcon.setVisibility(View.VISIBLE);
                     playAudio(question.getAudioFile());
                 });
@@ -103,13 +120,20 @@ public class PreAssessmentFragment extends Fragment {
         }
 
         if (question.getQuestionType().equals("pronunciation")) {
-            characterToPronounceText.setText(question.getCharacterToPronounce().toString());
+            nextButton.setEnabled(false);
+            nextButton.setBackgroundColor(Color.GRAY);
+            String correctCharacter = question.getCharacterToPronounce().toString();
+
+            characterToPronounceText.setText(correctCharacter);
             characterToPronounceCard.setVisibility(View.VISIBLE);
             microphoneButton.setVisibility(View.VISIBLE);
 
             microphoneButton.setOnClickListener(v -> {
                 microphoneButton.setVisibility(View.GONE);
                 loadingAnimation.setVisibility(View.VISIBLE);
+
+                //Use model to make prediction
+                startRecording_Google();
 
                 onSpeakButtonClicked();
 
@@ -153,12 +177,12 @@ public class PreAssessmentFragment extends Fragment {
             return;
         }
 
-        audioButton.setEnabled(false);
+        speakingButton.setEnabled(false);
         mediaPlayer.start();
 
         mediaPlayer.setOnCompletionListener(mp -> {
             speakingIcon.setVisibility(View.INVISIBLE);
-            audioButton.setEnabled(true);
+            speakingButton.setEnabled(true);
             mp.release();
             mediaPlayer = null;
         });
@@ -189,6 +213,84 @@ public class PreAssessmentFragment extends Fragment {
         choice1.setBackgroundResource(R.drawable.button_choices_background);
         choice2.setBackgroundResource(R.drawable.button_choices_background);
         choice3.setBackgroundResource(R.drawable.button_choices_background);
+    }
+
+    private void startRecording_Prinz() {
+        firebaseUploader.audioRecordingToURL(new FirebaseUploader.UploadCallback() {
+            @Override
+            public void onSuccess(String fileUrl) {
+                HuggingFaceClient client = new HuggingFaceClient();
+                client.predict(fileUrl, new HuggingFaceClient.PredictionCallback() {
+                    @Override
+                    public void onSuccess(String prediction) {
+                        questionText.setText("Prediction: "+prediction);
+
+                        String correctCharacter = characterToPronounceText.getText().toString().trim();
+                        getActivity().runOnUiThread(() -> {
+                            if (prediction.contains(correctCharacter)) {
+                                nextButton.setEnabled(true);
+                                nextButton.setBackgroundColor(Color.parseColor("#4821a8"));
+                                Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getContext(), "Try again!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        Log.d("PreAssessmentFragment", prediction);
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        Log.d("PreAssessmentFragment",error);
+                        getActivity().runOnUiThread(()->{
+                            Toast.makeText(getContext(), "Error: " + error, Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Log.d("PreAssessmentFragment",errorMessage);
+            }
+        });
+    }
+
+    private void startRecording_Google() {
+        if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[]{Manifest.permission.RECORD_AUDIO},
+                    REQUEST_MICROPHONE);
+        }
+        else {
+            AudioRecorderHelper.startRecording(base64Audio ->
+                    speechEvaluator.transcribeAudio(base64Audio, new SpeechEvaluator.OnTranscriptionCompleteListener() {
+                        @Override
+                        public void onTranscriptionComplete(String pinyinText, float confidence) {
+                            questionText.setText("PinyinText: " + pinyinText + "  Confidence: " + confidence);
+
+                            String correctCharacter = characterToPronounceText.getText().toString().trim();
+                            getActivity().runOnUiThread(() -> {
+                                if (pinyinText.contains(correctCharacter)) {
+                                    nextButton.setEnabled(true);
+                                    nextButton.setBackgroundColor(Color.parseColor("#4821a8"));
+                                    Toast.makeText(getContext(), "Correct! Confidence: " + confidence, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getContext(), "Try again!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onError(String error) {
+                            Log.d("PreAssessmentFragment", error);
+                            getActivity().runOnUiThread(()->{
+                                Toast.makeText(getContext(), "Error: " + error, Toast.LENGTH_SHORT).show();
+                            });
+                        }
+                    })
+            );
+        }
     }
 }
 
