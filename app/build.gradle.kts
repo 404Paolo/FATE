@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.material)
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("org.json:json:20211205")
+    implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.belerweb:pinyin4j:2.5.1")
 
     //Firebase

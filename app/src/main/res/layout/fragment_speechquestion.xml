@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/questionText"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Pronounce This Character"
+        android:padding="20dp"
+        style="@style/pre_assessment_text_style_question"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/characterToPronounceCard"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:outlineAmbientShadowColor="@color/lavender_indigo"
+
+        android:outlineSpotShadowColor="@color/lavender_indigo"
+        app:cardBackgroundColor="@color/lavender_indigo"
+        app:cardCornerRadius="16dp"
+
+        app:cardElevation="6dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/check_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginStart="2dp"
+
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/card_layout_background_initial">
+
+            <TextView
+                android:id="@+id/characterToPronounceText"
+
+                style="@style/missing_character_choices_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="15dp"
+
+                android:paddingVertical="2dp"
+                android:text="CH"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageButton
+        android:id="@+id/microphone_button"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/microphone_icon"
+        android:background="@null"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginBottom="100dp"/>
+
+    <ProgressBar
+        android:id="@+id/loading_animation"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        style="?android:attr/progressBarStyle"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginBottom="100dp"
+
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/check_icon"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/check_svgrepo_com"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginBottom="100dp"
+
+        android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

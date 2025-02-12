@@ -66,6 +66,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toMenuActivity);
             }
         }
-        //---
     }
 }
