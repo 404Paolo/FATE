@@ -59,7 +59,8 @@ public class PreAssessmentActivity extends AppCompatActivity {
         int nextItem = viewPager.getCurrentItem() + 1;
         if (nextItem < adapter.getItemCount()) {
             viewPager.setCurrentItem(nextItem);
-        } else {
+        }
+        else {
             finishAssessment();
         }
     }
