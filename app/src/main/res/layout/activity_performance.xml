@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/dashboard_string_style_module_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="Performance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Your average score for: " />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            app:indicatorColor="@color/orange"
+            app:indicatorSize="100dp"
+            app:max="100"
+            app:progress="50"
+            app:trackColor="@color/light_orange"
+            app:trackThickness="14dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/dashboard_string_style_description_module_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="Non-pronunciation Issues"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/dashboard_string_style_description_module_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="Pronounciation Issues"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pronounciationIssues_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status not resolved"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/orange" />
+    </FrameLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

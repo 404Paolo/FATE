@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/ghost_white">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dashboard_card_view_module_0"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:cardElevation="12dp"
+        app:cardCornerRadius="15dp"
+
+        app:cardBackgroundColor="@color/orange"
+        android:outlineAmbientShadowColor="@color/orange"
+        android:outlineSpotShadowColor="@color/orange"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="50dp"
+
+        android:clickable="false"
+        android:focusable="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboard_constraint_layout_module_0"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@drawable/card_layout_background"
+
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="4dp">
+
+            <TextView
+                android:id="@+id/dashboard_string_view_module_0"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+
+                android:text="@string/dashboard_string_module_0"
+                style="@style/dashboard_string_style_module_name"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/highestAttempt"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Highest Attempt: "
+                style="@style/dashboard_string_style_description_module_0"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_string_view_module_0"
+                app:layout_constraintBottom_toTopOf="@+id/latestAttempt"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/latestAttempt"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latest Attempt: "
+
+                style="@style/dashboard_string_style_description_module_0"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="15dp"/>
+
+            <ImageButton
+                android:id="@+id/dashboard_image_module_0_button_start"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="20dp"
+                android:background="@null"
+
+                android:src="@drawable/performance_button_displayperformance"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

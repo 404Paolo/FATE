@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/custom_dialog_background">
+
+    <TextView
+        android:id="@+id/tvLockedTitle"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Character Locked"
+
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="24sp"
+        android:textColor="@color/charcoal_gray"
+
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+
+        android:layout_marginBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/tvLockedMessage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="This character is locked."
+
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="14sp"
+        android:textColor="@color/charcoal_gray"
+        android:gravity="center"
+
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+
+        android:text="Okay"
+
+        android:fontFamily="@font/poppins_semibold"
+        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"/>
+</LinearLayout>

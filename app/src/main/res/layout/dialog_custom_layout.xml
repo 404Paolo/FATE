@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/custom_dialog_background">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character: "
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="24sp"
+        android:textColor="@color/charcoal_gray"
+        android:layout_marginBottom="2dp"/>
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose an option"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/charcoal_gray"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Description"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:background="@drawable/custom_button_background"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVideo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Video"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:background="@drawable/custom_button_background"
+            android:layout_marginEnd="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSpeech"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Speech"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="10sp"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:background="@drawable/custom_button_background"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
+</LinearLayout>

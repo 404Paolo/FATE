@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="grid_spacing">9dp</dimen> <!-- Spacing between items -->
+    <dimen name="grid_edge_spacing">18dp</dimen> <!-- Spacing at the edges -->
+</resources>
