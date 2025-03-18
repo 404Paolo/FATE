@@ -25,7 +25,7 @@ public class GoogleAuthHelper {
 
     public String getAccessToken() {
         try {
-            InputStream inputStream = context.getAssets().open("service-account.json");
+            InputStream inputStream = context.getAssets().open("midyear-arcade-449603-f2-aa8b14e9d0b1.json");
             Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
             String jsonContent = scanner.hasNext() ? scanner.next() : "";
             scanner.close();

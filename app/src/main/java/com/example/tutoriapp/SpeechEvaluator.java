@@ -60,7 +60,7 @@ public class SpeechEvaluator {
                 Response response = client.newCall(request).execute();
                 if (response.isSuccessful() && response.body() != null) {
                     String responseData = response.body().string();
-                    Log.d(TAG, "Speech API Response: " + responseData);
+                    Log.d(TAG, "Speech Response: " + responseData);
 
                     JSONObject result = extractTranscription(responseData);
                     String chineseText = result.getString("text");
@@ -70,12 +70,12 @@ public class SpeechEvaluator {
 
                     listener.onTranscriptionComplete(pinyinText, confidence);
                 } else {
-                    listener.onError("API Response Failed: " + response.body());
+                    listener.onError("Response Failed: " + response.body());
                 }
 
             } catch (Exception e) {
-                listener.onError("Speech API Request Failed: " + e.getMessage());
-                Log.e(TAG, "Speech API Request Failed", e);
+                listener.onError("Speech Request Failed: " + e.getMessage());
+                Log.e(TAG, "Speech Request Failed", e);
             }
         });
     }
@@ -107,7 +107,7 @@ public class SpeechEvaluator {
                 }
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error extracting transcription", e);
+            Log.e(TAG, "Error ");
         }
 
         // Default values if extraction fails

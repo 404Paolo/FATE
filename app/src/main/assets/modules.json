@@ -1,6 +1,6 @@
 {
     "modules": {
-        "module0": {
+        "Module 0": {
             "pages": [
                 {
                     "pageId": "m0-s1-p1",
@@ -102,11 +102,19 @@
                         },
                         {
                             "header": "Tones",
-                            "content": "There are four tones in total."
-                        },
+                            "content": "There are four tones in total.<br><span style='color: gray'><small>Remember : Tones are always placed on top of the initials!</small></span>"
+                        }
+                    ]
+                },
+                {
+                    "pageId": "m0-s3-p2",
+                    "pageType": "text",
+                    "subtopic": "3",
+                    "subtopicTitle": "",
+                    "contentBlocks" :[
                         {
-                            "header": "",
-                            "content": "<span style='color: gray'><small>Remember : Tones are always placed on top of the initials!</small></span>"
+                            "header": "You have finished Module 0!",
+                            "content": "Click <b>next</b> to proceed to the Final Assessment of Module 0<br><br><span style='color: gray'><small>You cannot return to the module pages until you finish this exam.</small></span>"
                         }
                     ]
                 }
@@ -131,7 +139,7 @@
                     "questionText": "True or False: Tones are placed on top of the finals.",
                     "questionType": "trueFalse",
                     "options": ["True", "False"],
-                    "correctAnswer": "False"
+                    "correctAnswer": "True"
                 },
                 {
                     "questionId": "m0-q4",
@@ -182,9 +190,17 @@
                     "options": ["Chinese dialect", "romanization system", "main language of China"],
                     "correctAnswer": "romanization system"
                 }
+            ],
+
+            "listening" : [
+
+            ],
+
+            "speaking" : [
+
             ]
         },
-        "module1": {
+        "Module 1": {
             "pages": [
                 {
                     "pageId": "m1-s1-p1",
@@ -460,174 +476,174 @@
                 }
             ],
             "listening": [
-                    {
-                        "questionId": "m1-q7",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["b", "p", "m", "f"],
-                        "correctAnswer": "b",
-                        "audio": "b"
-                    },
-                    {
-                        "questionId": "m1-q8",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["b", "p", "m", "f"],
-                        "correctAnswer": "p",
-                        "audio": "p"
-                    },
-                    {
-                        "questionId": "m1-q9",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["b", "p", "m", "f"],
-                        "correctAnswer": "m",
-                        "audio": "m"
-                    },
-                    {
-                        "questionId": "m1-q10",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["b", "p", "m", "f"],
-                        "correctAnswer": "f",
-                        "audio": "f"
-                    },
-                    {
-                        "questionId": "m1-q11",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["d", "t", "n", "l"],
-                        "correctAnswer": "d",
-                        "audio": "d"
-                    },
-                    {
-                        "questionId": "m1-q12",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["d", "t", "n", "l"],
-                        "correctAnswer": "t",
-                        "audio": "t"
-                    },
-                    {
-                        "questionId": "m1-q13",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["d", "t", "n", "l"],
-                        "correctAnswer": "n",
-                        "audio": "n"
-                    },
-                    {
-                        "questionId": "m1-q14",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["d", "t", "n", "l"],
-                        "correctAnswer": "l",
-                        "audio": "l"
-                    },
-                    {
-                        "questionId": "m1-q15",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["g", "k", "h", "j"],
-                        "correctAnswer": "g",
-                        "audio": "g"
-                    },
-                    {
-                        "questionId": "m1-q16",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["g", "k", "h", "j"],
-                        "correctAnswer": "k",
-                        "audio": "k"
-                    },
-                    {
-                        "questionId": "m1-q17",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["g", "k", "h", "j"],
-                        "correctAnswer": "h",
-                        "audio": "h"
-                    },
-                    {
-                        "questionId": "m1-q18",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["g", "k", "h", "j"],
-                        "correctAnswer": "j",
-                        "audio": "j"
-                    },
-                    {
-                        "questionId": "m1-q19",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["q", "x", "zh", "ch"],
-                        "correctAnswer": "q",
-                        "audio": "q"
-                    },
-                    {
-                        "questionId": "m1-q20",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["q", "x", "zh", "ch"],
-                        "correctAnswer": "x",
-                        "audio": "x"
-                    },
-                    {
-                        "questionId": "m1-q21",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["q", "x", "zh", "ch"],
-                        "correctAnswer": "zh",
-                        "audio": "zh"
-                    },
-                    {
-                        "questionId": "m1-q22",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["q", "x", "zh", "ch"],
-                        "correctAnswer": "ch",
-                        "audio": "ch"
-                    },
-                    {
-                        "questionId": "m1-q23",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["sh", "r", "z", "c"],
-                        "correctAnswer": "sh",
-                        "audio": "sh"
-                    },
-                    {
-                        "questionId": "m1-q24",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["sh", "r", "z", "c"],
-                        "correctAnswer": "r",
-                        "audio": "r"
-                    },
-                    {
-                        "questionId": "m1-q25",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["sh", "r", "z", "c"],
-                        "correctAnswer": "z",
-                        "audio": "z"
-                    },
-                    {
-                        "questionId": "m1-q26",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["sh", "r", "z", "c"],
-                        "correctAnswer": "c",
-                        "audio": "c"
-                    },
-                    {
-                        "questionId": "m1-q27",
-                        "questionText": "Identify the initial.",
-                        "questionType": "listening",
-                        "options": ["sh", "r", "z", "s"],
-                        "correctAnswer": "s",
-                        "audio": "s"
-                    }              
+                {
+                    "questionId": "m1-q7",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["b", "p", "m", "f"],
+                    "correctAnswer": "b",
+                    "audio": "b"
+                },
+                {
+                    "questionId": "m1-q8",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["b", "p", "m", "f"],
+                    "correctAnswer": "p",
+                    "audio": "p"
+                },
+                {
+                    "questionId": "m1-q9",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["b", "p", "m", "f"],
+                    "correctAnswer": "m",
+                    "audio": "m"
+                },
+                {
+                    "questionId": "m1-q10",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["b", "p", "m", "f"],
+                    "correctAnswer": "f",
+                    "audio": "f"
+                },
+                {
+                    "questionId": "m1-q11",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["d", "t", "n", "l"],
+                    "correctAnswer": "d",
+                    "audio": "d"
+                },
+                {
+                    "questionId": "m1-q12",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["d", "t", "n", "l"],
+                    "correctAnswer": "t",
+                    "audio": "t"
+                },
+                {
+                    "questionId": "m1-q13",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["d", "t", "n", "l"],
+                    "correctAnswer": "n",
+                    "audio": "n"
+                },
+                {
+                    "questionId": "m1-q14",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["d", "t", "n", "l"],
+                    "correctAnswer": "l",
+                    "audio": "l"
+                },
+                {
+                    "questionId": "m1-q15",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["g", "k", "h", "j"],
+                    "correctAnswer": "g",
+                    "audio": "g"
+                },
+                {
+                    "questionId": "m1-q16",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["g", "k", "h", "j"],
+                    "correctAnswer": "k",
+                    "audio": "k"
+                },
+                {
+                    "questionId": "m1-q17",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["g", "k", "h", "j"],
+                    "correctAnswer": "h",
+                    "audio": "h"
+                },
+                {
+                    "questionId": "m1-q18",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["g", "k", "h", "j"],
+                    "correctAnswer": "j",
+                    "audio": "j"
+                },
+                {
+                    "questionId": "m1-q19",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["q", "x", "zh", "ch"],
+                    "correctAnswer": "q",
+                    "audio": "q"
+                },
+                {
+                    "questionId": "m1-q20",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["q", "x", "zh", "ch"],
+                    "correctAnswer": "x",
+                    "audio": "x"
+                },
+                {
+                    "questionId": "m1-q21",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["q", "x", "zh", "ch"],
+                    "correctAnswer": "zh",
+                    "audio": "zh"
+                },
+                {
+                    "questionId": "m1-q22",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["q", "x", "zh", "ch"],
+                    "correctAnswer": "ch",
+                    "audio": "ch"
+                },
+                {
+                    "questionId": "m1-q23",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["sh", "r", "z", "c"],
+                    "correctAnswer": "sh",
+                    "audio": "sh"
+                },
+                {
+                    "questionId": "m1-q24",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["sh", "r", "z", "c"],
+                    "correctAnswer": "r",
+                    "audio": "r"
+                },
+                {
+                    "questionId": "m1-q25",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["sh", "r", "z", "c"],
+                    "correctAnswer": "z",
+                    "audio": "z"
+                },
+                {
+                    "questionId": "m1-q26",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["sh", "r", "z", "c"],
+                    "correctAnswer": "c",
+                    "audio": "c"
+                },
+                {
+                    "questionId": "m1-q27",
+                    "questionText": "Identify the initial.",
+                    "questionType": "listening",
+                    "options": ["sh", "r", "z", "s"],
+                    "correctAnswer": "s",
+                    "audio": "s"
+                }
             ],
             "speaking": [
                 {
@@ -777,9 +793,9 @@
                     "correctAnswer": "s",
                     "scoreThreshold": 0.7
                 }
-            ]            
+            ]
         },
-        "module2": {
+        "Module 2" : {
             "pages": [
                 {
                     "pageId": "m2-s1-p1",
@@ -1664,7 +1680,7 @@
                 }
             ]
         },
-        "module3": {
+        "Module 3": {
             "pages": [
                 {
                     "pageId": "m3-s1-p1",
@@ -1807,6 +1823,10 @@
                     ]
                 }
             ],
+            "conceptual" : [
+
+            ],
+
             "listening": [
                 {
                     "questionId": "m3-q1",
@@ -2032,8 +2052,425 @@
                     "correctAnswer": "chòng",
                     "audio": "chong4"
                 }
-            ]            
+            ],
+
+            "speaking" : [
+
+            ]
+        },
+
+        "Pre Assessment": {
+            "conceptual": [
+                {
+                    "questionId": "pa-q1",
+                    "fromModule": "m0",
+                    "questionText": "When people refer to the 'Chinese' language, they are usually referring to Mandarin.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "True"
+                },
+                {
+                    "questionId": "pa-q2",
+                    "fromModule": "m0",
+                    "questionText": "Pinyin is a language.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "False"
+                },
+                {
+                    "questionId": "pa-q3",
+                    "fromModule": "m0",
+                    "questionText": "Tones are placed on top of the finals.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "True"
+                },
+                {
+                    "questionId": "pa-q4",
+                    "fromModule": "m0",
+                    "questionText": "Initials are vowels",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "False"
+                },
+                {
+                    "questionId": "pa-q5",
+                    "fromModule": "m0",
+                    "questionText": "A romanization system allows us to change writing from a script, such as Chinese or Russian, into the Latin (Roman) script.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "True"
+                },
+                {
+                    "questionId": "pa-q6",
+                    "fromModule": "m0",
+                    "questionText": "Chinese has several romanization systems.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "True"
+                },
+                {
+                    "questionId": "pa-q7",
+                    "fromModule": "m0",
+                    "questionText": "Hanyu means the language of the Yu people - China’s largest ethnic group.",
+                    "questionType": "trueFalse",
+                    "options": ["True", "False"],
+                    "correctAnswer": "False"
+                },
+                {
+                    "questionId": "pa-q8",
+                    "fromModule": "m0",
+                    "questionText": "Pinyin is formally called ____ Pinyin.",
+                    "questionType": "multipleChoice",
+                    "options": ["Zhuyin", "Hanyu", "Hanzi"],
+                    "correctAnswer": "Hanyu"
+                },
+                {
+                    "questionId": "pa-q9",
+                    "fromModule": "m0",
+                    "questionText": "A Pinyin syllable consists of ___ components.",
+                    "questionType": "multipleChoice",
+                    "options": ["2", "3", "4"],
+                    "correctAnswer": "3"
+                },
+                {
+                    "questionId": "pa-q10",
+                    "fromModule": "m0",
+                    "questionText": "Pinyin is a ______.",
+                    "questionType": "multipleChoice",
+                    "options": ["main language of China", "Chinese dialect", "romanization system"],
+                    "correctAnswer": "romanization system"
+                }
+
+            ],
+            "listening": [
+                {
+                    "questionId": "pa-q11",
+                    "fromModule": "m1",
+                    "questionText": "Identify the syllable.",
+                    "questionType": "listening",
+                    "options": ["zhi1", "ji1"],
+                    "correctAnswer": "zhi1",
+                    "audio" : "zh"
+                },
+                {
+                    "questionId": "pa-q12",
+                    "fromModule": "m1",
+                    "questionText": "Identify the syllable.",
+                    "questionType": "listening",
+                    "options": ["chi1", "qi1"],
+                    "correctAnswer": "chi1",
+                    "audio" : "ch"
+                },
+                {
+                    "questionId": "pa-q13",
+                    "fromModule": "m1",
+                    "questionText": "Identify the syllable.",
+                    "questionType": "listening",
+                    "options": ["shi1", "xi1"],
+                    "correctAnswer": "shi1",
+                    "audio" : "sh"
+                }
+
+            ],
+            "speaking": [
+                {
+                    "questionId": "pa-q14",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: b|uo|",
+                    "questionType": "speaking",
+                    "correctAnswer": "b",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q15",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: p|uo|",
+                    "questionType": "speaking",
+                    "correctAnswer": "p",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q16",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: d|uh|",
+                    "questionType": "speaking",
+                    "correctAnswer": "d",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q17",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: t|uh|",
+                    "questionType": "speaking",
+                    "correctAnswer": "t",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q18",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: g|uh|",
+                    "questionType": "speaking",
+                    "correctAnswer": "g",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q19",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: k|uh|",
+                    "questionType": "speaking",
+                    "correctAnswer": "k",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q20",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: j|ee|",
+                    "questionType": "speaking",
+                    "correctAnswer": "j",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q21",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: q|ee|",
+                    "questionType": "speaking",
+                    "correctAnswer": "q",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q22",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: zh|r|",
+                    "questionType": "speaking",
+                    "correctAnswer": "zh",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q23",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: ch|r|",
+                    "questionType": "speaking",
+                    "correctAnswer": "ch",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q24",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: z|i|",
+                    "questionType": "speaking",
+                    "correctAnswer": "z",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q25",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: c|i|",
+                    "questionType": "speaking",
+                    "correctAnswer": "c",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q26",
+                    "fromModule": "m1",
+                    "questionText": "Pronounce the following initial in the first tone: sh|i|",
+                    "questionType": "speaking",
+                    "correctAnswer": "sh",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q27",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -e",
+                    "questionType": "speaking",
+                    "correctAnswer": "e",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q28",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the third tone: -ü",
+                    "questionType": "speaking",
+                    "correctAnswer": "uu",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q29",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -en",
+                    "questionType": "speaking",
+                    "correctAnswer": "en",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q30",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -eng",
+                    "questionType": "speaking",
+                    "correctAnswer": "eng",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q31",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -ian",
+                    "questionType": "speaking",
+                    "correctAnswer": "ian",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q32",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -ui",
+                    "questionType": "speaking",
+                    "correctAnswer": "ui",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q33",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -un",
+                    "questionType": "speaking",
+                    "correctAnswer": "un",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q34",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -ong",
+                    "questionType": "speaking",
+                    "correctAnswer": "ong",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q35",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -üe",
+                    "questionType": "speaking",
+                    "correctAnswer": "uue",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q36",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -üan",
+                    "questionType": "speaking",
+                    "correctAnswer": "uuan",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q37",
+                    "fromModule": "m2",
+                    "questionText": "Pronounce the following final in the first tone: -ün",
+                    "questionType": "speaking",
+                    "correctAnswer": "uun",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q38",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: bā",
+                    "questionType": "speaking",
+                    "correctAnswer": "ba1",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q39",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: né",
+                    "questionType": "speaking",
+                    "correctAnswer": "ne2",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q40",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: pǐ",
+                    "questionType": "speaking",
+                    "correctAnswer": "pi3",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q41",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: zhì",
+                    "questionType": "speaking",
+                    "correctAnswer": "zhi4",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q42",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: tǒng",
+                    "questionType": "speaking",
+                    "correctAnswer": "tong3",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q43",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: kái",
+                    "questionType": "speaking",
+                    "correctAnswer": "kai2",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q44",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: chōng",
+                    "questionType": "speaking",
+                    "correctAnswer": "chong1",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q45",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: bà",
+                    "questionType": "speaking",
+                    "correctAnswer": "ba4",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q46",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: zhī",
+                    "questionType": "speaking",
+                    "correctAnswer": "zhi1",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q47",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: tóng",
+                    "questionType": "speaking",
+                    "correctAnswer": "tong2",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q48",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: ně",
+                    "questionType": "speaking",
+                    "correctAnswer": "ne3",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q49",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: kài",
+                    "questionType": "speaking",
+                    "correctAnswer": "kai4",
+                    "scoreThreshold": 0.65
+                },
+                {
+                    "questionId": "pa-q50",
+                    "fromModule": "m3",
+                    "questionText": "Pronounce the following Pinyin syllable: pì",
+                    "questionType": "speaking",
+                    "correctAnswer": "pi4",
+                    "scoreThreshold": 0.65
+                }
+            ]
         }
     }
-  }
-  
+}

@@ -1,11 +1,11 @@
 package com.example.tutoriapp;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +27,9 @@ public class ChoiceQuestionFragment extends Fragment {
 
     private String questionId, questionText, questionType, correctAnswer;
     private CardView playAudioButton;
+    private Question question;
     private List<String> options;
+    private MediaPlayer mediaPlayer;
 
     public static ChoiceQuestionFragment newInstance(String questionId, String questionText, String questionType, String correctAnswer, List<String> options) {
         ChoiceQuestionFragment fragment = new ChoiceQuestionFragment();
@@ -46,7 +48,7 @@ public class ChoiceQuestionFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             questionId = getArguments().getString(ARG_QUESTIONID);
-            questionText = getArguments().getString(ARG_QUESTIONTEXT);;
+            questionText = getArguments().getString(ARG_QUESTIONTEXT);
             questionType = getArguments().getString(ARG_QUESTIONTYPE);
             correctAnswer = getArguments().getString(ARG_CORRECTANSWER);
             options = getArguments().getStringArrayList(ARG_OPTIONS);
@@ -63,14 +65,28 @@ public class ChoiceQuestionFragment extends Fragment {
         RecyclerView optionsRecyclerView = view.findViewById(R.id.options_recycler);
         playAudioButton = view.findViewById(R.id.play_audio_button);
 
-        if(questionType.equals("listening")) playAudioButton.setVisibility(View.VISIBLE);
+        if (questionType.equals("listening")) playAudioButton.setVisibility(View.VISIBLE);
+        playAudioButton.setOnClickListener(v ->{
+
+            String resourceName = correctAnswer; // Extract the actual name (without "R.raw.")
+            int resId = getContext().getResources().getIdentifier(resourceName, "raw", getContext().getPackageName());
+
+            mediaPlayer = MediaPlayer.create(getContext(), resId);
+            mediaPlayer.start();
+        });
 
         questionTextView.setText(questionText);
 
-        // Set up RecyclerView
+        // Set up RecyclerView with listener
         optionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        optionsRecyclerView.setAdapter(new OptionsAdapter(options, correctAnswer));
+        optionsRecyclerView.setAdapter(new OptionsAdapter(options, correctAnswer, this::onOptionSelected));
 
         return view;
+    }
+
+    private void onOptionSelected(boolean isCorrect) {
+        if (getActivity() instanceof AssessmentActivity) {
+            ((AssessmentActivity) getActivity()).setNextButtonEnabled(true, isCorrect);
+        }
     }
 }

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreAssessmentActivity"
+    tools:context=".AssessmentActivity"
 
     android:orientation="vertical"
     android:background="@color/ghost_white">
@@ -35,7 +35,7 @@
             android:id="@+id/button_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black_olive"
+            android:backgroundTint="@color/metallic_violet"
             android:fontFamily="@font/poppins"
             android:text="next"
             android:textColor="@color/white"/>

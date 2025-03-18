@@ -1,6 +1,7 @@
 package com.example.tutoriapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 
 public class DashboardFragment extends Fragment {
@@ -31,15 +33,24 @@ public class DashboardFragment extends Fragment {
     private static final String MODULE_THREE_ENABLED_KEY = "ModuleThreeEnabled";
 
     private ImageButton moduleOneImageButton, moduleTwoImageButton, moduleThreeImageButton;
-    private ConstraintLayout moduleZeroCard, moduleOneCard, moduleTwoCard, moduleThreeCard;
+    private CardView moduleZeroCard, moduleOneCard, moduleTwoCard, moduleThreeCard;
+    private ProgressBar moduleZeroProg, moduleOneProg, moduleTwoProg, moduleThreeProg;
+    private Intent intent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        intent = new Intent(getActivity(), ModuleActivity.class);
 
         // Initialize SharedPreferences
         dashboardPreferences = requireActivity().getSharedPreferences(DASHBOARD_PREFERENCES_NAME, Context.MODE_PRIVATE);
         dashboardPreferencesEditor = dashboardPreferences.edit();
+
+        dashboardPreferencesEditor.putBoolean("isModuleOneFinalAssessmentComplete", true);
+        dashboardPreferencesEditor.putBoolean("isModuleTwoFinalAssessmentComplete", false);
+        dashboardPreferencesEditor.putBoolean("isModuleThreeFinalAssessmentComplete", false);
+
+        dashboardPreferencesEditor.apply();
 
         // Initialize buttons
         moduleOneImageButton = view.findViewById(R.id.dashboard_image_module_1_button_start);
@@ -47,70 +58,57 @@ public class DashboardFragment extends Fragment {
         moduleThreeImageButton = view.findViewById(R.id.dashboard_image_module_3_button_start);
 
         // Initialize each module card
-        moduleZeroCard = view.findViewById(R.id.dashboard_constraint_layout_module_0);
-        moduleOneCard = view.findViewById(R.id.dashboard_constraint_layout_module_1);
-        moduleTwoCard = view.findViewById(R.id.dashboard_constraint_layout_module_2);
-        moduleThreeCard = view.findViewById(R.id.dashboard_constraint_layout_module_3);
+        moduleZeroCard = view.findViewById(R.id.dashboard_card_view_module_0);
+        moduleOneCard = view.findViewById(R.id.dashboard_card_view_module_1);
+        moduleTwoCard = view.findViewById(R.id.dashboard_card_view_module_2);
+        moduleThreeCard = view.findViewById(R.id.dashboard_card_view_module_3);
+
+        moduleZeroProg = view.findViewById(R.id.dashboard_progress_bar_module_0);
+        moduleOneProg = view.findViewById(R.id.dashboard_progress_bar_module_1);
+        moduleTwoProg = view.findViewById(R.id.dashboard_progress_bar_module_2);
+        moduleThreeProg = view.findViewById(R.id.dashboard_progress_bar_module_3);
 
         // Restore saved button images
         moduleOneImageButton.setImageResource(dashboardPreferences.getInt(MODULE_ONE_IMAGE_KEY, R.drawable.module_padlock_icon));
         moduleTwoImageButton.setImageResource(dashboardPreferences.getInt(MODULE_TWO_IMAGE_KEY, R.drawable.module_padlock_icon));
         moduleThreeImageButton.setImageResource(dashboardPreferences.getInt(MODULE_THREE_IMAGE_KEY, R.drawable.module_padlock_icon));
 
-        // Restore saved enabled states
-        moduleOneCard.setClickable(dashboardPreferences.getBoolean(MODULE_ONE_ENABLED_KEY, false));
-        moduleOneCard.setFocusable(dashboardPreferences.getBoolean(MODULE_ONE_ENABLED_KEY, false));
-
-        moduleTwoCard.setClickable(dashboardPreferences.getBoolean(MODULE_TWO_ENABLED_KEY, false));
-        moduleTwoCard.setFocusable(dashboardPreferences.getBoolean(MODULE_TWO_ENABLED_KEY, false));
-
-        moduleThreeCard.setClickable(dashboardPreferences.getBoolean(MODULE_THREE_ENABLED_KEY, false));
-        moduleThreeCard.setFocusable(dashboardPreferences.getBoolean(MODULE_THREE_ENABLED_KEY, false));
-
         moduleZeroCard.setOnClickListener(v -> {
-            Log.d("DashboardFragment", "Hello from moduleZeroCard");
+            intent.putExtra("moduleNumber", "Module 0");
+            startActivity(intent);
         });
 
+        moduleOneCard.setOnClickListener(v -> {
+            intent.putExtra("moduleNumber", "Module 1");
+            startActivity(intent);
+        });
+
+        moduleTwoCard.setOnClickListener(v -> {
+            intent.putExtra("moduleNumber", "Module 2");
+            startActivity(intent);
+        });
+
+        moduleThreeCard.setOnClickListener(v -> {
+            intent.putExtra("moduleNumber", "Module 3");
+            startActivity(intent);
+        });
+
+
+        // Restore saved enabled states
+        moduleOneCard.setClickable(dashboardPreferences.getBoolean("ModuleOneUnlocked", false));
+        moduleOneCard.setFocusable(dashboardPreferences.getBoolean("ModuleOneUnlocked", false));
+
+        moduleTwoCard.setClickable(dashboardPreferences.getBoolean("ModuleTwoUnlocked", false));
+        moduleTwoCard.setFocusable(dashboardPreferences.getBoolean("ModuleTwoUnlocked", false));
+
+        moduleThreeCard.setClickable(dashboardPreferences.getBoolean("ModuleThreeUnlocked", false));
+        moduleThreeCard.setFocusable(dashboardPreferences.getBoolean("ModuleThreeUnlocked", false));
+
+        moduleOneCard.setAlpha(dashboardPreferences.getFloat("ModuleOneAlpha", 0.5f));
+        moduleTwoCard.setAlpha(dashboardPreferences.getFloat("ModuleTwoAlpha", 0.5f));
+        moduleThreeCard.setAlpha(dashboardPreferences.getFloat("ModuleThreeAlpha", 0.5f));
+
         return view;
-    }
-
-    public void updateModuleButton(String moduleName, int imageResource) {
-        switch (moduleName) {
-            case "ModuleOne":
-                moduleOneImageButton.setImageResource(imageResource);
-                dashboardPreferencesEditor.putInt(MODULE_ONE_IMAGE_KEY, imageResource);
-                enableModuleCard(moduleOneCard, MODULE_ONE_ENABLED_KEY);
-
-                moduleOneCard.setOnClickListener(v -> {
-                    Log.d("DashboardFragment", "Hello from moduleOneCard");
-                });
-
-                break;
-            case "ModuleTwo":
-                moduleTwoImageButton.setImageResource(imageResource);
-                dashboardPreferencesEditor.putInt(MODULE_TWO_IMAGE_KEY, imageResource);
-                enableModuleCard(moduleTwoCard, MODULE_TWO_ENABLED_KEY);
-
-                moduleTwoCard.setOnClickListener(v -> {
-                    Log.d("DashboardFragment", "Hello from moduleTwoCard");
-                });
-
-                break;
-            case "ModuleThree":
-                moduleThreeImageButton.setImageResource(imageResource);
-                dashboardPreferencesEditor.putInt(MODULE_THREE_IMAGE_KEY, imageResource);
-                enableModuleCard(moduleThreeCard, MODULE_THREE_ENABLED_KEY);
-
-                moduleThreeCard.setOnClickListener(v -> {
-                    Log.d("DashboardFragment", "Hello from moduleThreeCard");
-                });
-
-                break;
-        }
-        dashboardPreferencesEditor.apply(); // Save changes
-
-        dashboardPreferencesEditor.clear();
-        dashboardPreferencesEditor.apply();
     }
 
     private void enableModuleCard(ConstraintLayout moduleCard, String preferenceKey) {

@@ -113,6 +113,19 @@
         <item name="android:textColor">@color/black_olive</item>
     </style>
 
+    <style name="contentblock_header">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black_olive</item>
+    </style>
+
+    <style name="contentblock_content">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black_olive</item>
+        <item name="android:lineHeight">40sp</item>
+    </style>
+
     <style name="dashboard_string_style_description_module_0">
         <item name="fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/black_olive</item>
@@ -163,6 +176,11 @@
     <string name="pre_assessment_dialog_text_eighteen">You can practice and improve your pronunciation by navigating through the app.</string>
     <!--END of Pre Assessment Dialog String-->
 
+    <style name="Widget.MaterialComponents.Button.UnelevatedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@null</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
     <!--START of Pre Assessment Dialog String Style-->
     <style name="pre_assessment_dialog_text_style_one">
         <item name="fontFamily">@font/poppins_semibold</item>
@@ -178,6 +196,14 @@
         <item name="android:textColor">@color/black_olive</item>
     </style>
     <!--END of Pre Assessment Question String Style-->
+
+    <style name="practice_character_string_style">
+        <item name="backgroundColor">@null</item>
+        <item name="background">@null</item>
+        <item name="fontFamily">@font/righteous</item>
+        <item name="android:textColor">@color/charcoal_gray</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
     <!--START of Pre Assessment Question String Style-->
     <style name="pre_assessment_text_style_choices">

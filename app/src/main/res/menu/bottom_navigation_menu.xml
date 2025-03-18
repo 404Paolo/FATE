@@ -9,10 +9,6 @@
         android:title="@string/bottom_navigation_string_performance"
         android:icon="@drawable/custom_performance_icon"/>
     <item
-        android:id="@+id/bottom_navigation_leader_board"
-        android:title="@string/bottom_navigation_string_leaderboard"
-        android:icon="@drawable/custom_leaderboard_icon"/>
-    <item
         android:id="@+id/bottom_navigation_practice"
         android:title="@string/bottom_navigation_string_practice"
         android:icon="@drawable/custom_practice_icon"/>

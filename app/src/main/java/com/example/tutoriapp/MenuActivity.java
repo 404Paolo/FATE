@@ -3,7 +3,6 @@ package com.example.tutoriapp;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,23 +11,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -41,7 +31,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -64,8 +53,13 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         bottomNavigationView = findViewById(R.id.main_menu_bottom_navigation);
         customizeBottomNavigationBar();
@@ -87,8 +81,6 @@ public class MenuActivity extends AppCompatActivity {
                         addFragment(new DashboardFragment(), "DASHBOARD_FRAGMENT");
                 } else if (menuItemItemId == R.id.bottom_navigation_performance) {
                         addFragment(new PerformanceFragment(), "PERFORMANCE_FRAGMENT");
-                } else if (menuItemItemId == R.id.bottom_navigation_leader_board) {
-                        addFragment(new LeaderboardFragment(), "LEADERBOARD_FRAGMENT");
                 } else if (menuItemItemId == R.id.bottom_navigation_practice) {
                         addFragment(new PracticeFragment(), "PRACTICE_FRAGMENT");
                 } else if (menuItemItemId == R.id.bottom_navigation_settings) {
@@ -96,6 +88,9 @@ public class MenuActivity extends AppCompatActivity {
                 } else {
                         addFragment(new DashboardFragment(), "DASHBOARD_FRAGMENT");
                 }
+//                else if (menuItemItemId == R.id.bottom_navigation_leader_board) {
+//                    addFragment(new LeaderboardFragment(), "LEADERBOARD_FRAGMENT");
+//                }
                 return true;
             }
         });
@@ -131,7 +126,7 @@ public class MenuActivity extends AppCompatActivity {
         // Retrieve the current value of isPreAssessmentComplete
         boolean isPreAssessmentComplete = sharedPreferences.getBoolean("isPreAssessmentComplete", false);
 
-        if (isPreAssessmentComplete) {
+        if (!isPreAssessmentComplete) {
             Log.d(TAG, "No dialog displayed");
             sharedPreferences.edit().clear().apply();
         } else {
@@ -154,27 +149,27 @@ public class MenuActivity extends AppCompatActivity {
                         yiMessage.setText(R.string.pre_assessment_dialog_text_three);
                     } else if(dialogPage == 4) {
                         preAssessmentDialog.dismiss();
-                        Intent toPreAssessmentActivity = new Intent(MenuActivity.this, PreAssessmentActivity.class);
-                        startActivityForResult(toPreAssessmentActivity, 100);
+//                        Intent toPreAssessmentActivity = new Intent(MenuActivity.this, AssessmentActivity.class);
+//                        toPreAssessmentActivity.putExtra("moduleNumber", "Pre Assessment");
+//                        startActivityForResult(toPreAssessmentActivity, 100);
                     } else if(dialogPage == 5) {
                         message += getString(R.string.pre_assessment_dialog_text_five) + "\n";
                         if (preAssessmentModuleOneScore == 8) {
                             message += "One  ";
                             hasPerfectScore = true;
-
-                            dashboardFragment.updateModuleButton("ModuleOne", R.drawable.dashboard_start_button);
+//                            dashboardFragment.updateModuleButton("ModuleOne", R.drawable.dashboard_start_button);
                         }
                         if (preAssessmentModuleTwoScore == 5) {
                             message += "Two  ";
                             hasPerfectScore = true;
 
-                            dashboardFragment.updateModuleButton("ModuleTwo", R.drawable.dashboard_start_button);
+//                            dashboardFragment.updateModuleButton("ModuleTwo", R.drawable.dashboard_start_button);
                         }
                         if (preAssessmentModuleThreeScore == 5) {
                             message += "Three  ";
                             hasPerfectScore = true;
 
-                            dashboardFragment.updateModuleButton("ModuleThree", R.drawable.dashboard_start_button);
+//                            dashboardFragment.updateModuleButton("ModuleThree", R.drawable.dashboard_start_button);
                         }
                         if (hasPerfectScore) {
                             yiMessage.setText(message);

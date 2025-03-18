@@ -9,10 +9,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.Timestamp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory;
@@ -23,7 +20,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -46,15 +42,15 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
-public class FirebaseUploader {
+public class FirebaseUtil {
 
-    private static final String TAG = "FirebaseUploader";
+    private static final String TAG = "FirebaseUtil";
     private static final int SAMPLE_RATE = 48000; // 48 kHz
     private static final int CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO;
     private static final int AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT;
@@ -64,7 +60,7 @@ public class FirebaseUploader {
 
     private FirebaseFirestore db;
 
-    public FirebaseUploader(Context context) {
+    public FirebaseUtil(Context context) {
         this.context = context;
         storage = FirebaseStorage.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -259,7 +255,7 @@ public class FirebaseUploader {
             Map<String, Object> attemptData = new HashMap<>();
             attemptData.put("questionMap", questionMap);
             attemptData.put("percentage", percentage);
-            attemptData.put("timestamp", FieldValue.serverTimestamp());
+            attemptData.put("timestamp", new Date().getTime());
 
             attemptsRef.document(String.valueOf(nextAttempt)).set(attemptData)
                     .addOnSuccessListener(aVoid -> {
@@ -291,7 +287,7 @@ public class FirebaseUploader {
                             moduleRef.set(performanceData, SetOptions.merge())
                                     .addOnSuccessListener(aVoid2 -> {
                                         Log.d(TAG, "Performance document updated successfully.");
-                                        updateLocalPerformanceFile(currentUser.getUid(), moduleId, performanceData);
+                                        updateLocalPerformanceFile(currentUser.getUid(), moduleId, performanceData, attemptData, nextAttempt);
                                     })
                                     .addOnFailureListener(e -> Log.e(TAG, "Error updating performance document: " + e.getMessage()));
                         });
@@ -352,7 +348,7 @@ public class FirebaseUploader {
     public static List<ModuleDoc> loadPerformanceData(Context context) {
         File file = new File(context.getFilesDir(), "performance_data.json");
         if (!file.exists()) {
-            Log.d("Paolo", "Shits Empty brah");
+            Log.d("Paolo", "Shit's Empty brah");
             return new ArrayList<>(); // Return empty list if no data is found
         }
 
@@ -370,7 +366,11 @@ public class FirebaseUploader {
         String json = jsonBuilder.toString();
         Gson gson = new Gson();
 
-        Type listType = new TypeToken<List<ModuleDoc>>() {}.getType();
-        return gson.fromJson(json, listType);
+        // Deserialize as a Map (because JSON root is an object)
+        Type mapType = new TypeToken<Map<String, ModuleDoc>>() {}.getType();
+        Map<String, ModuleDoc> moduleMap = gson.fromJson(json, mapType);
+
+        // Convert the map values to a List<ModuleDoc>
+        return new ArrayList<>(moduleMap.values());
     }
 }

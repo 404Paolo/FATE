@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/ghost_white"
+    android:background="@drawable/custom_dialog_background">
+
+    <TextView
+        android:id="@+id/characterToPronounceText"
+        style="@style/dashboard_string_style_module_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Pronounce: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/characterToPronounceText">
+
+        <TextView
+            android:id="@+id/isCorrectText"
+            style="@style/dashboard_string_style_description_module_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is Correct: "
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/confidenceText"
+            style="@style/dashboard_string_style_description_module_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/isCorrectText"
+            android:layout_marginTop="15dp"
+            android:text="Prediction Confidence: "
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCancel"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button_cancel_background"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Cancel"
+            android:textColor="@color/granite_gray"
+            android:textSize="10sp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSpeak"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button_background"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Speak"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

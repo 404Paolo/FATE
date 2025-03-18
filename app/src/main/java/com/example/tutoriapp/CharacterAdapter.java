@@ -7,9 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.speech.RecognizerIntent;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -29,6 +31,7 @@ import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +44,10 @@ import java.util.List;
 public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.ViewHolder> {
     private Context context;
     private List<CharacterModel> characterList;
+
+    private MediaPlayer mediaPlayer;
+    private SpeechEvaluator speechEvaluator;
+    private static final int REQUEST_MICROPHONE = 1;
 
     public CharacterAdapter(Context context, List<CharacterModel> characterList) {
         this.context = context;
@@ -60,6 +67,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         boolean isModuleOneComplete = dashboardPreferences.getBoolean("isModuleOneFinalAssessmentComplete", false);
         boolean isModuleTwoComplete = dashboardPreferences.getBoolean("isModuleTwoFinalAssessmentComplete", false);
         boolean isModuleThreeComplete = dashboardPreferences.getBoolean("isModuleThreeFinalAssessmentComplete", false);
+        speechEvaluator = new SpeechEvaluator(context);
 
         CharacterModel character = characterList.get(position);
         holder.characterText.setText(character.getCharacter());
@@ -168,7 +176,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
         TextView dialogTitle = dialogView.findViewById(R.id.dialogTitle);
         TextView dialogMessage = dialogView.findViewById(R.id.dialogMessage);
-        Button btnDescription = dialogView.findViewById(R.id.btnDescription);
         Button btnVideo = dialogView.findViewById(R.id.btnVideo);
         Button btnSpeech = dialogView.findViewById(R.id.btnSpeech);
 
@@ -192,14 +199,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             characterDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
 
-        btnDescription.setOnClickListener(v -> {
-            characterDialog.dismiss();
-            fetchCharacterDescription(character, type, characterDialog);
-        });
-
         btnVideo.setOnClickListener(v -> {
-            characterDialog.dismiss();
-            showVideoDialog(character, type);
+            String resourceName = character;
+            int resId = context.getResources().getIdentifier(resourceName, "raw", context.getPackageName());
+
+            mediaPlayer = MediaPlayer.create(context, resId);
+            mediaPlayer.start();
         });
 
         btnSpeech.setOnClickListener(v -> {
@@ -253,21 +258,61 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     }
 
 
-
-
     private void showSpeechDialog(String character, AlertDialog previousDialog) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Speech Comparison");
-        builder.setMessage("Start speech comparison for " + character + "?");
-        builder.setPositiveButton("Start", (dialog, which) -> {
+        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_speech_compare, null);
+
+        TextView isCorrectText = dialogView.findViewById(R.id.isCorrectText);
+        TextView confidenceText = dialogView.findViewById(R.id.confidenceText);
+        TextView characterToPronounceText = dialogView.findViewById(R.id.characterToPronounceText);
+        Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
+        Button buttonSpeak = dialogView.findViewById(R.id.buttonSpeak);
+
+        characterToPronounceText.setText("Pronounce:  "+character);
+
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        buttonCancel.setOnClickListener(v -> {
             dialog.dismiss();
-            startSpeechComparison(character); // Call the function to start speech comparison
         });
-        builder.setNegativeButton("Cancel", (dialog, which) -> {
-            dialog.dismiss();
-            previousDialog.show(); // Reopen previous dialog
+
+        buttonSpeak.setOnClickListener(v -> {
+            if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.RECORD_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions((Activity) context,
+                        new String[]{android.Manifest.permission.RECORD_AUDIO},
+                        REQUEST_MICROPHONE);
+            }
+            else {
+                AudioRecorderHelper.startRecording(base64Audio ->
+                        speechEvaluator.transcribeAudio(base64Audio, new SpeechEvaluator.OnTranscriptionCompleteListener() {
+                            @Override
+                            public void onTranscriptionComplete(String pinyinText, float confidence) {
+                                ((Activity) context).runOnUiThread(() -> {
+                                    if (pinyinText.contains(character)) {
+                                        isCorrectText.setText("Is Correct: True");
+                                        confidenceText.setText("Confidence: "+String.format("%.2f", confidence));
+                                    } else {
+                                        isCorrectText.setText("Is Correct: False");
+                                        confidenceText.setText("Confidence: "+String.format("%.2f", confidence));
+                                    }
+
+                                    Toast.makeText(context, "Pronounciation successfully recorded and evaluated", Toast.LENGTH_SHORT).show();
+                                });
+                            }
+
+                            @Override
+                            public void onError(String error) {
+                                ((Activity) context).runOnUiThread(()->{
+                                    Toast.makeText(context, "Error: " + error, Toast.LENGTH_SHORT).show();
+                                });
+                            }
+                        })
+                );
+            }
         });
-        builder.show();
     }
 
 
@@ -334,6 +379,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         });
 
         dialog.show();
+    }
+
+    private void startRecording_Google(String correctCharacter) {
+
     }
 }
 
