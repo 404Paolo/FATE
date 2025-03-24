@@ -1,0 +1,36 @@
+{
+    "phonemes": {
+      "p": { "errorId": "E1", "constraintId": "C1" },
+      "t": { "errorId": "E1", "constraintId": "C2" },
+      "k": { "errorId": "E1", "constraintId": "C3" },
+      "sh": { "errorId": "E2", "constraintId": "C4" },
+      "zh": { "errorId": "E2", "constraintId": "C5" },
+      "ch": { "errorId": "E2", "constraintId": "C6" },
+      "iu": { "errorId": "E3", "constraintId": "C7" },
+      "ui": { "errorId": "E3", "constraintId": "C8" },
+      "un": { "errorId": "E3", "constraintId": "C9" },
+      "e": { "errorId": "E3", "constraintId": "C10" },
+      "eng": { "errorId": "E3", "constraintId": "C11" }
+    },
+  
+    "errors": {
+      "E1": { "error": "Aspiration", "meaning": "Initial should be aspirated", "constraint": ["C1", "C2", "C3"] },
+      "E2": { "error": "Consonant omission", "meaning": "Initial should be pronounced with an /r/ sound at the end", "constraint": ["C4", "C5", "C6"] },
+      "E3": { "error": "Orthographic mismatch", "meaning": "Phoneme is spoken differently than how it is spelled", "constraint": ["C7", "C8", "C9", "C10", "C11"] }
+    },
+  
+    "constraints": {
+      "C1": { "phoneme": "p", "feedback": "/p/ should be strongly aspirated, like 'p' in 'puff'" },
+      "C2": { "phoneme": "t", "feedback": "/t/ should be strongly aspirated, like 't' in 'tickle'" },
+      "C3": { "phoneme": "k", "feedback": "/k/ should be strongly aspirated, like 'k' in 'king'" },
+      "C4": { "phoneme": "sh", "feedback": "/sh/ should be pronounced with an /r/ sound at the end, like 'shirt'" },
+      "C5": { "phoneme": "zh", "feedback": "/zh/ should be pronounced with an /r/ sound at the end, like 'germ'" },
+      "C6": { "phoneme": "ch", "feedback": "/ch/ should be pronounced with an /r/ sound at the end, like 'chirp'" },
+      "C7": { "phoneme": "iu", "feedback": "/iu/ should be pronounced with an /o/ sound, like 'yo' in 'yogurt'" },
+      "C8": { "phoneme": "ui", "feedback": "/ui/ should be pronounced like 'way'" },
+      "C9": { "phoneme": "un", "feedback": "/un/ should be pronounced like 'an’' in the phrase 'go an’ look'" },
+      "C10": { "phoneme": "e", "feedback": "/e/ should be pronounced like 'u' in 'hungry'" },
+      "C11": { "phoneme": "eng", "feedback": "/-eng/ should be pronounced like '-ung' in 'hung'" }
+    }
+  }
+  
